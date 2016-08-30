@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -6,37 +6,38 @@
 </head>
 <body>
 <?php
-// include 'config.php';
+include 'config.php';
 
 
 	// $sql1 = "SELECT * FROM `signup`";
 	// $query1 = mysqli_query($conn,$sql1);
-
+	//
 	// while ( $row1 = mysqli_fetch_assoc($query1)) {
-
+	//
 	// 	}
 
 
-// if(isset($_POST['get'])){
-// 	$ad = $_POST['name'];
-// 	$email = $_POST['email'];
-// 	$pass = $_POST['password'];
+if(isset($_POST['get'])){
+	$ad = $_POST['name'];
+	$email = $_POST['email'];
+	$pass = $_POST['password'];
 
 
-// 	if(!empty($ad) && !empty($email) && !empty($pass)){
-// 		$sql ="INSERT INTO 	`sign-up`(`name`, `email`, `password`) VALUES('$ad','$email','$pass')";
-// 		$query = mysqli_query($conn,$sql);
-//
-// 			if($query){
-// 				header('Location: index.php');
-// 			}else{
-// 				echo "prosesde sehvlik var";
-// 			}
-// 		}
-// 		else{
-// 			echo "'Do not keep the inputs blank!";
-// 		}
-// }
+
+	if(!empty($ad) && !empty($email) && !empty($pass)){
+		$sql ="INSERT INTO 	`signup`(`name`, `email`, `password`) VALUES('$ad','$email','$pass')";
+		$query = mysqli_query($conn,$sql);
+
+			if($query){
+				header('Location: index1.php');
+			}else{
+				echo "prosesde sehvlik var";
+			}
+		}
+		else{
+			echo "'Do not keep the inputs blank!";
+		}
+}
 ?>
 <div class="container">
 
@@ -56,4 +57,4 @@
 		 background-attachment: fixed;
 		 background-size: cover;
 	}
-</style> -->
+</style>

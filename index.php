@@ -35,7 +35,7 @@
 	<div class="container text-center">
 		<div class="col-md-4 col-md-offset-4">
 		<img class="img-circle" src="img/1.png">
-			 <h3 class="title">Admin Login</h3>
+			 <h3 class="title">Login</h3>
 			 <p>Sign in to your account</p>
 			 <br>
 			 <br>
@@ -48,6 +48,11 @@
                         <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                         <input type='submit' class="btn btn-success" name="send" value="Send">
+          </form>
+
+
+          <form  action="signUp.php">
+                <input type='submit' class="btn btn-success" name="sign" value="Sign Up">
           </form>
 		</div>
 	</div>

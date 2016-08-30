@@ -1,21 +1,15 @@
 
 <?php
- session_start();
- if (isset($_SESSION['signUp'])) {
-
- }
- else {
-   header('Location:signUp.php');
- }
+ // session_start();
+ // if (isset($_SESSION['signUp'])) {
+ //
+ // }
+ // else {
+ //   header('Location:signUp.php');
+ // }
 ?>
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
-<!--<![endif]-->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -56,14 +50,31 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a id="home" href="#homeSection">HOME</a></li>
-                        <li><a id="about" href="#aboutSection" class="a">ABOUT</a></li>
+                        <li ><a id="home" href="#homeSection">
+                          <?php
+                      include "config.php";
+                    $sql = "SELECT * FROM `menu`";
+                    $query = mysqli_query($conn, $sql);
+                    $menu = [];
+
+                      if ($query) {
+                        while($row = mysqli_fetch_assoc($query)){
+                          array_push($menu , $row['menu']);
+
+                        }
+                        for ($i = 0; $i < sizeof($menu); $i++) {
+                          ?>
+                              <?=$menu[$i]?>
+                      <?php  }
+                      }
+                      ?>  </a></li>
+                        <!-- <li><a id="about" href="#aboutSection" class="a">ABOUT</a></li>
                         <li><a id="features" href="#featuresSection" class="a">FEATURES</a></li>
                         <li><a id="product" href="#productSection" class="a">PRICES</a></li>
                         <li><a id="feedback" href="#feedbackSection" class="a">FEEDBACK</a></li>
                         <li><a id="team" href="#teamSection" class="a">TEAM</a></li>
                         <li><a id="contact" href="#contactSection" class="a">CONTACTS</a></li>
-                        <li><a href="#">EXTRA<span class="caret a"></span></a></li>
+                        <li><a href="#">EXTRA<span class="caret a"></span></a></li> -->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -657,18 +668,12 @@
                   $sql = "SELECT * FROM `telebe`";
                   $query = mysqli_query($conn, $sql);
                   $src = [];
-
-                  // $sql = "SELECT `text` FROM `telebe`";
-                  // $query = mysqli_query($conn, $sql);
                   $text = [];
                     if ($query) {
                       while($row = mysqli_fetch_assoc($query)){
                         array_push($src , $row['src']);
                          array_push($text , $row['text']);
                       }
-                      // while($row1 = mysqli_fetch_assoc($query)){
-                      //        array_push($text , $row1['text']);
-                      //       }
                       for ($i = 0; $i < sizeof($src); $i++) {
                         ?>
                         <div class="col-md-3 col-xs-6 col-sm-3">
@@ -680,24 +685,7 @@
                   <?php  }
                   }
                   ?>
-                  <?php
-                    // include "config.php";
 
-                        // <!-- <h4>MIKE BOLDER</h4>
-                        // <p>Developer</p> -->
-          //   if ($query) {
-          //       while($row = mysqli_fetch_assoc($query)){
-                    // array_push($text , $row['text']);
-              //   }
-                //  for ($i = 0; $i < sizeof($text); $i++) {
-                ?>
-                 <!-- <p>
-                //  $text[$i]
-                 ?></p> -->
-          <?php
-            // }
-            //  }
-            ?>
           <!-- </div>
         </div> -->
                     <!-- <div class="col-md-3 col-xs-6 col-sm-3">
