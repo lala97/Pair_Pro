@@ -1,12 +1,13 @@
 
 <?php
- // session_start();
- // if (isset($_SESSION['signUp'])) {
- //
- // }
- // else {
- //   header('Location:signUp.php');
- // }
+ session_start();
+ if (isset($_SESSION['singUp'])) {
+
+ }
+ else {
+   header('Location:index.php');
+ }
+ unset($_SESSION['singUp']);
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -50,7 +51,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li ><a id="home" href="#homeSection">
+                        <!-- <li ><a id="home" href="#homeSection"> -->
                           <?php
                       include "config.php";
                     $sql = "SELECT * FROM `menu`";
@@ -64,10 +65,12 @@
                         }
                         for ($i = 0; $i < sizeof($menu); $i++) {
                           ?>
+                            <li ><a class="a" id="<?=$menu[$i]?>" href="#.<?=$menu[$i]?>.Section">
                               <?=$menu[$i]?>
+                              </a></li>
                       <?php  }
                       }
-                      ?>  </a></li>
+                      ?>
                         <!-- <li><a id="about" href="#aboutSection" class="a">ABOUT</a></li>
                         <li><a id="features" href="#featuresSection" class="a">FEATURES</a></li>
                         <li><a id="product" href="#productSection" class="a">PRICES</a></li>

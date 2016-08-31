@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (isset($_SESSION['admin1'])) {
+  $_SESSION['adminafter']=true;
+}
+else {
+  header('Location:index.php');
+}
+unset($_SESSION['admin1']);
+
+
+ ?>
  <!DOCTYPE html>
  <html>
    <head>
@@ -17,17 +29,17 @@
      <table  class="table table-bordered">
      <tbody>
        <tr>
-         <td><h4>Team Section</h4></td>
+         <td><h4> Section</h4></td>
+         <td>
+            <a href="main.php" class="btn btn-default">Next</a>
+         </td>
+       </tr>
+       <!-- <tr>
+         <td><h4>Menu Section</h4></td>
          <td>
             <a href="team.php" class="btn btn-default">Next</a>
          </td>
-       </tr>
-       <tr>
-         <td><h4>Menu Section</h4></td>
-         <td>
-            <a href="menu.php" class="btn btn-default">Next</a>
-         </td>
-       </tr>
+       </tr> -->
      </tbody>
      </table>
    </div>

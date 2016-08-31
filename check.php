@@ -7,29 +7,34 @@ if (isset($_POST['send'])){
 
   if (!empty($_POST['name']) && !empty($_POST['password'])) {
       if ($name=="admin" && $password=="123") {
-        
+        $_SESSION['admin1']=true;
           header('Location:admin.php');
       }
       else {
         header('Location:index.php');
       }
 
-      $sql1 = "SELECT `name` FROM `signup`";
-   $query1 = mysqli_query($conn,$sql1);
-   while ($row1 = mysqli_fetch_assoc($query1)) {
-    if($_POST['name']==$row1['name']){
-      $sql2 = "SELECT `password` FROM `signup`";
-       $query2 = mysqli_query($conn,$sql2);
+ $sql1 = "SELECT * FROM `signup` WHERE name='$name'";
+     $query1 = mysqli_query($conn,$sql1);
+
+     $row1 = mysqli_fetch_assoc($query1);
+
+     if($name==$row1['name']){
+          $sql2 = "SELECT `password` FROM `signup`  WHERE password = '$password'";
+
+           $query2 = mysqli_query($conn,$sql2);
 
 
-     while ( $row2 = mysqli_fetch_assoc($query2) ) {
-            if($_POST['password']==$row2['password']){
-        header('Location:index1.php');
-         }
-      }
-   }
+            $row2 = mysqli_fetch_assoc($query2);
+             if($_POST['password']==$row2['password']){
+                 $_SESSION['singUp']="nese";
+                  header('Location:index1.php');
 
- }
+        }
+     }
+     else{
+        // header('Location:index.php');
+     }
   }
 }
   else {

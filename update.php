@@ -9,7 +9,7 @@
 
     $querry=mysqli_query($conn,$sql);
     if ($querry) {
-       header('Location:team.php');
+       header('Location:main.php');
 
     }
     else {
@@ -17,7 +17,7 @@
      }
   }
   if (isset($_POST['back'])) {
-     header('Location:team.php');
+     header('Location:main.php');
   }
 
 
@@ -31,7 +31,7 @@
 
     $querry=mysqli_query($conn,$sql);
     if ($querry) {
-       header('Location:team.php');
+       header('Location:main.php');
 
     }
     else {
@@ -39,6 +39,33 @@
      }
   }
   if (isset($_POST['Menuback'])) {
-     header('Location:team.php');
+     header('Location:main.php');
   }
+
+
+
+  //for ABOUT section
+
+  if (isset($_POST['Aboutgonder'])) {
+
+    $image=$_POST['about'];
+    $text=$_POST['text'];
+    $id=$_POST['id'];
+    $sql="UPDATE `about` SET `image`='$image', `text`=`$text`  WHERE `id`='$id'";
+
+    $querry=mysqli_query($conn,$sql);
+    if ($querry) {
+       header('Location:main.php');
+
+    }
+    else {
+      echo "error";
+     }
+  }
+  if (isset($_POST['Aboutback'])) {
+     header('Location:main.php');
+  }
+
+
+
  ?>

@@ -1,3 +1,14 @@
+<?php
+session_start();
+if ($_SESSION['adminafter']) {
+
+
+}
+else {
+  header('Location:index.php');
+}
+unset($_SESSION['adminafter']);
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,10 +36,10 @@
   </head>
   <body>
     <div class="container">
-      <h1>Create a Customer</h1>
-      <form action="create.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="ad">
-        <input type="text" name="metn" placeholder="text">
+      <h1>Create a Menu</h1>
+      <form action="createMenu.php" method="post">
+
+        <input type="text" name="menu" placeholder="text">
         <input type="submit" class="submit" name="gonder" value="Gonder">
       </form>
     </div>
@@ -38,13 +49,13 @@
        if (isset($_POST['gonder'])) {
          include 'config.php';
 
-         $src =  "img/" . basename($_FILES["ad"]["name"]);
-         $metn=$_POST['metn'];
 
-         $sql="INSERT INTO telebe(`src`, `text`) VALUES ('$src', '$metn')";
+         $menu=$_POST['menu'];
+
+         $sql="INSERT INTO menu(`menu`) VALUES ('$menu')";
          $querry=mysqli_query($conn,$sql);
          if ($querry) {
-           header('Location:admin.php');
+           header('Location:main.php');
          }
          else {
            echo "QOWULMUR";

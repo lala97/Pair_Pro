@@ -21,7 +21,7 @@
       </div>
       <div class="jumbotron">
           <div class="container">
-            <form action="delete.php" method="post">
+            <form action="deleteMenu.php" method="post">
               <input type="submit" class="btn btn-danger" name="yes" value="Yes">
               <input type="hidden" name="id" value="<?= $id ?>">
               <input type="submit" class="btn btn-default" name="No" value="No">
@@ -34,20 +34,21 @@
 
 <?php
    include 'config.php';
-
+   // for MENU section
    if (isset($_POST['yes'])) {
      $id1 = $_POST['id'];
-     $sql="DELETE FROM telebe WHERE id=$id1";
+     $sql="DELETE FROM menu WHERE id=$id1";
      $querry=mysqli_query($conn,$sql);
-    
+
      if ($querry) {
-       header('Location:admin.php');
+       header('Location:main.php');
      }
       else {
         echo "ERROR";
       }
    }
    if (isset($_POST['No'])) {
-       header('Location:admin.php');
+       header('Location:main.php');
    }
+
  ?>
