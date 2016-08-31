@@ -49,12 +49,14 @@
   if (isset($_POST['Aboutgonder'])) {
 
     $image=$_POST['about'];
-    $text=$_POST['text'];
+    $text=$_POST['editor1'];
     $id=$_POST['id'];
-    $sql="UPDATE `about` SET `image`='$image', `text`=`$text`  WHERE `id`='$id'";
+    $sql1="UPDATE `about` SET `image`='$image', `text`='$text'  WHERE `id`='$id'";
 
-    $querry=mysqli_query($conn,$sql);
-    if ($querry) {
+    print_r($sql1);
+    $querry1=mysqli_query($conn,$sql1);
+    var_dump($querry1);
+    if ($querry1) {
        header('Location:main.php');
 
     }

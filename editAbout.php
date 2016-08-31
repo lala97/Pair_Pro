@@ -15,6 +15,7 @@
     <meta charset="utf-8">
     <title></title>
     	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <script src="//cdn.ckeditor.com/4.5.10/full/ckeditor.js"></script>
     <style>
         input{
           display: block;
@@ -25,12 +26,17 @@
   <body>
     <div class="container">
       <h1>Update a About Section</h1>
-      <div class="col-md-4 col-md-offset-3">
+      <div class="col-md-8 col-md-offset-2">
+
         <form action="update.php" method="post">
           <label class="form-control-label">Image</label>
-          <input class="form-control"  type="text" name="about" placeholder="Image Src" value="<?php echo $row['image'] ?>">
+          <input size="50" class="form-control"  type="text" name="about" placeholder="Image Src" value="<?php echo $row['image'] ?>">
+
             <label class="form-control-label">text</label>
-          <input class="form-control"  type="text" name="text" placeholder="Text" value="<?php echo $row['text'] ?>">
+            <textarea name="editor1" cols="30" rows="10"></textarea>
+          <script>
+           CKEDITOR.replace( 'editor1' );
+       </script>
           <input class="form-control"  type="hidden" name="id" value="<?php echo $id ?>" >
 
           <input type="submit" name="Aboutgonder" value="Update"  class="btn btn-success">

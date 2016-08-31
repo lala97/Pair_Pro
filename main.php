@@ -1,12 +1,12 @@
 <?php
- // session_start();
- // if ($_SESSION['adminafter']) {
- //
- //
- // }
- // else {
- //   header('Location:index.php');
- // }
+ session_start();
+ if ($_SESSION['adminafter']) {
+
+
+ }
+ else {
+   header('Location:index.php');
+ }
  // unset($_SESSION['adminafter']);
 
  ?>

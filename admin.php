@@ -6,7 +6,7 @@ if (isset($_SESSION['admin1'])) {
 else {
   header('Location:index.php');
 }
-unset($_SESSION['admin1']);
+// unset($_SESSION['admin1']);
 
 
  ?>
@@ -40,8 +40,11 @@ unset($_SESSION['admin1']);
             <a href="team.php" class="btn btn-default">Next</a>
          </td>
        </tr> -->
+
      </tbody>
      </table>
+     <a class="btn btn-default" href="logout.php">Log Out</a>
+     <?php echo "ish bitdikden sonra log out etmek meslehetdir." ?>
    </div>
  </div>
    </body>

@@ -7,7 +7,7 @@ if ($_SESSION['adminafter']) {
 else {
   header('Location:index.php');
 }
-unset($_SESSION['adminafter']);
+// unset($_SESSION['adminafter']);
  ?>
 <!DOCTYPE html>
 <html>

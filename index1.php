@@ -7,7 +7,7 @@
  else {
    header('Location:index.php');
  }
- unset($_SESSION['singUp']);
+ // unset($_SESSION['singUp']);
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -91,8 +91,10 @@
         <section id="launch">
             <div class="container text-center">
                 <div id="top1">
+
                     <h1 class="weight">Do not wait - <span style="color:#20befa;">launch</span> your startup now!</h1>
                     <p class="weight">this template is flexible enough to suit any kind of startup or new business</p>
+
                     <button type="button" class="btn btn-info"><i class="fa fa-shopping-cart"></i> GET STARTED</button>
                     <button class="btn btn-outline">TAKE TOUR</button>
                 </div>
@@ -153,22 +155,67 @@
             <!-- FIRST TAB-->
             <div class="row">
                 <div class="first-tab">
-                    <div class="col-md-6 col-sm-6">
-                        <img src="img/people.jpg" class="img-responsive img-left">
+                        <!-- <img src="img/people.jpg" class="img-responsive img-left"> -->
+                        <?php
+                    include "config.php";
+                  $sql = "SELECT * FROM `about`";
+                  $query = mysqli_query($conn, $sql);
+                  $src = [];
+                  $text = [];
+                    if ($query) {
+                      while($row = mysqli_fetch_assoc($query)){
+                        array_push($src , $row['image']);
+                        array_push($text , $row['text']);
+                      }
+                      for ($i = 0; $i < sizeof($src); $i++) {
+                        ?>
+
+                        <div class="col-md-6 col-sm-6">
+                      <img src="<?=$src[$i]?>" class="img-responsive img-left">
                     </div>
+
                     <div class="col-md-6 col-sm-6">
-                        <div class="info text-center textRight">
-                            <h3 class="weight">FOR EVERY</h3>
+                    <div class="info text-center textRight">
+                        <?=$text[$i]?>
+                      </div>
+                    </div>
+
+                  <?php  }
+                  }
+                  ?>
+                </div>
+                            <!-- <h3 class="weight">FOR EVERY</h3>
                             <span class="weight">STARTUP</span>
                             <p>Lorem ipsum dolor sit atmet sit dolor greand fdanrh</p>
                             <p>sdfs sit atmet sit dolor greand fdanrh sdfs</p>
                             <p class="textTop">In his igitur partibus duabus nihil erat, quod Zeno commuta rest gestiret. Sed virtutem ipsam inchoavit, nihil ampliusuma. Scien tiam pollicentur, quam non erat mirum sapientiae lorem cupido patria esse cariorem. Quae qui non
-                                vident, nihilamane umquam magnum ac cognitione.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- SECOND TAB-->
+                                vident, nihilamane umquam magnum ac cognitione.</p> -->
+                                <?php
+                          //   include "config.php";
+                          // $sql = "SELECT * FROM `about`";
+                          // $query = mysqli_query($conn, $sql);
+                          //
+                          // $text = [];
+                          //   if ($query) {
+                          //     while($row = mysqli_fetch_assoc($query)){
+                          //
+                          //        array_push($text , $row['text']);
+                          //     }
+                          //     for ($i = 0; $i < sizeof($text); $i++) {
+                          //       ?>
+                          <!--
+                                <div class="col-md-6 col-sm-6">
+                                <div class="info text-center textRight">
+                                  s
+                                  </div>
+                                </div> -->
+                                    <?php
+                                  // }
+                                  // }
+                                  ?>
+
+              </div>
+            <!-- SECOND TAB -->
             <div class="row">
                 <div class="second-tab">
                     <div class="col-md-6 col-sm-6">
